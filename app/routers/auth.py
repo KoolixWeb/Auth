@@ -8,10 +8,10 @@ from app.config import settings
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 import logging
 
-router = APIRouter()
+router = APIRouter(prefix="/auth", tags=["auth"])
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
 @router.post("/register", response_model=Token)
 async def register(user: UserCreate):
