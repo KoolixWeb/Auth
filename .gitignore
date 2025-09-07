@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+.env
+
+# OAuth Client Secrets
+client_secret_39490928722-d5rek519694ltkos73m0jglmj2foum5k.apps.googleusercontent.com.json
