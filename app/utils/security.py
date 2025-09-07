@@ -20,7 +20,7 @@ def create_refresh_token(user_id: str) -> str:
     to_encode = {"sub": user_id, "exp": datetime.utcnow() + timedelta(minutes=settings.refresh_token_expire_minutes)}
     return jwt.encode(to_encode, settings.secret_key, algorithm=settings.algorithm)
 
-def get_token_response(access_token: str, refresh_token: str) -> Token:
+def get_token_response(access_token: str, refresh_token: str = None) -> Token:
     return Token(
         access_token=access_token,
         token_type="bearer",
